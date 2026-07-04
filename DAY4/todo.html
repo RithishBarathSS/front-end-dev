@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TO-DO Application</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .todo-container {
+      background: white;
+      width: 400px;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+
+    h1 {
+      color: #2563eb;
+      margin-bottom: 20px;
+      font-size: 40px;
+    }
+
+    .input-area {
+      display: flex;
+      gap: 10px;
+    }
+
+    input {
+      flex: 1;
+      height: 45px;
+      border: 2px solid #93c5fd;
+      border-radius: 10px;
+      padding-left: 10px;
+      font-size: 18px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #2563eb;
+    }
+
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+      transform: scale(1.05);
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 25px;
+    }
+
+    li {
+      background: #e0f2fe;
+      padding: 12px;
+      margin-bottom: 12px;
+      border-radius: 10px;
+      font-size: 20px;
+      text-align: left;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: 0.2s;
+    }
+
+    li:hover {
+      background: #bae6fd;
+      transform: translateX(5px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="todo-container">
+
+    <h1>TO-DO App</h1>
+
+    <div class="input-area">
+      <input 
+        type="text"
+        id="taskInput"
+        placeholder="Enter Task"
+      >
+
+      <button onclick="addTask()">
+        Add
+      </button>
+    </div>
+
+    <ul id="taskList"></ul>
+
+  </div>
+
+  <script>
+
+    function addTask() {
+
+      let taskInput = document.getElementById("taskInput");
+
+      let taskValue = taskInput.value;
+
+      if (taskValue === "") {
+        alert("Please enter a task");
+        return;
+      }
+
+      let li = document.createElement("li");
+
+      li.innerHTML = "✔ " + taskValue;
+
+      document.getElementById("taskList").appendChild(li);
+
+      taskInput.value = "";
+    }
+
+  </script>
+
+</body>
+</html>
